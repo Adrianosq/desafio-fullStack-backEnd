@@ -13,7 +13,7 @@ Um pouco das tecnologias que foram utilizadas no projeto:
 - [Bcryptjs](https://www.npmjs.com/package/bcrypt)
 
 A URL base da aplicação:
-https://fullstack-backend-nwtf.onrender.com/
+https://api-contact-render.onrender.com
 
 ## 2 - Instalação e uso
 
