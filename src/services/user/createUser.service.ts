@@ -1,9 +1,9 @@
 import { AppDataSource } from '../../data-source';
 import { User } from '../../entities';
-import { iCreateUser, iUserRepo, iUserWhitoutPassword } from '../../interfaces';
+import { iUserCreate, iUser, iUserRepo } from '../../interfaces';
 import { userReturnSchema } from '../../schemas';
 
-const createUserService = async (userData: iCreateUser): Promise<iUserWhitoutPassword> => {
+const createUserService = async (userData: iUserCreate): Promise<iUser> => {
   const userRepository: iUserRepo = AppDataSource.getRepository(User);
 
   const user: User = userRepository.create(userData);

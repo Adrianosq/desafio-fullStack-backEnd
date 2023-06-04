@@ -1,10 +1,10 @@
 import { AppDataSource } from '../../data-source';
 import { Contact, User } from '../../entities';
 import { AppError } from '../../error';
-import { iContact, iContactsRepo, iCreateContacts, iUserRepo } from '../../interfaces';
+import { iContact, iContactsRepo, iContactCreate, iUserRepo } from '../../interfaces';
 import { contactReturnSchema } from '../../schemas';
 
-const createContactService = async (contactData: iCreateContacts, userId: string): Promise<iContact> => {
+const createContactService = async (contactData: iContactCreate, userId: string): Promise<iContact> => {
   const contactRepository: iContactsRepo = AppDataSource.getRepository(Contact);
   const userRepository: iUserRepo = AppDataSource.getRepository(User);
 

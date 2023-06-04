@@ -1,6 +1,17 @@
 import { createLoginController } from './login.controller';
-import { createUserController, getUsersController, getOwnerUserController } from './user.controller';
-import { createContactsController } from './contacts.controller';
+import {
+  createUserController,
+  getUsersController,
+  getOwnerUserController,
+  updateUserController,
+} from './user.controller';
+import {
+  createContactsController,
+  getContactsController,
+  deleteContactController,
+  updateContactController,
+} from './contacts.controller';
+import { deleteUserController } from './user.controller';
 
 export {
   createLoginController,
@@ -8,4 +19,9 @@ export {
   createContactsController,
   getUsersController,
   getOwnerUserController,
+  updateUserController,
+  deleteUserController,
+  getContactsController,
+  deleteContactController,
+  updateContactController,
 };

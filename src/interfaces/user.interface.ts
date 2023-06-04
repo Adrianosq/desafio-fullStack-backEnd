@@ -1,12 +1,12 @@
 import { z } from 'zod';
-import { userReturnManySchema, userReturnSchema, userReturnWhitoutPassword, userSchema } from '../schemas';
-import { Repository } from 'typeorm';
+import { userReturnManySchema, userReturnSchema, userSchema } from '../schemas';
+import { DeepPartial, Repository } from 'typeorm';
 import { User } from '../entities';
 
-type iCreateUser = z.infer<typeof userSchema>;
+type iUserCreate = z.infer<typeof userSchema>;
 type iUser = z.infer<typeof userReturnSchema>;
-type iUserWhitoutPassword = z.infer<typeof userReturnWhitoutPassword>;
+type iUserUpdate = DeepPartial<iUserCreate>;
 type iUserMany = z.infer<typeof userReturnManySchema>;
 type iUserRepo = Repository<User>;
 
-export { iCreateUser, iUser, iUserMany, iUserRepo, iUserWhitoutPassword };
+export { iUserCreate, iUser, iUserMany, iUserRepo, iUserUpdate };

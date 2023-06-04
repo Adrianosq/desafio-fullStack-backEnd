@@ -12,7 +12,7 @@ const userReturnSchema = userSchema
   .extend({
       id: z.string(),
       createdAt: z.string(),
-      contact: contactManySchema
+      contact: contactManySchema.nullish()
   })
   .omit({ password: true })
 

@@ -1,16 +1,17 @@
 import { iLogin } from './login.interfaces';
-import { iCreateUser, iUser, iUserMany, iUserRepo, iUserWhitoutPassword } from './user.interface';
-import { iContact, iContactsMany, iContactsRepo, iCreateContacts } from './contacts.interface';
+import { iUserCreate, iUser, iUserMany, iUserRepo, iUserUpdate } from './user.interface';
+import { iContact, iContactsMany, iContactsRepo, iContactCreate, iContactUpdate } from './contacts.interface';
 
 export {
   iLogin,
-  iCreateUser,
+  iUserCreate,
   iUser,
   iUserMany,
   iUserRepo,
-  iUserWhitoutPassword,
+  iUserUpdate,
   iContact,
   iContactsMany,
   iContactsRepo,
-  iCreateContacts,
+  iContactCreate,
+  iContactUpdate
 };
