@@ -1,7 +1,7 @@
 import { AppDataSource } from '../../data-source';
 import { User } from '../../entities';
 import { iUserRepo } from '../../interfaces';
-import { contactReturnSchema, userReturnWhitoutPassword, userReturnSchema, userReturnManySchema } from '../../schemas';
+import { userReturnSchema } from '../../schemas';
 
 const getOwnerUserService = async (idUser: string) => {
   const userRepository: iUserRepo = AppDataSource.getRepository(User);
@@ -13,7 +13,7 @@ const getOwnerUserService = async (idUser: string) => {
     }
   });
 
-  const returnUser = userReturnManySchema.parse(user);
+  const returnUser = userReturnSchema.parse(user);
 
   return returnUser;
 };

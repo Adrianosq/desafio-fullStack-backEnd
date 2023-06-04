@@ -2,6 +2,7 @@ import { AppDataSource } from '../../data-source';
 import { Contact, User } from '../../entities';
 import { AppError } from '../../error';
 import { iContact, iContactsRepo, iCreateContacts, iUserRepo } from '../../interfaces';
+import { contactReturnSchema } from '../../schemas';
 
 const createContactService = async (contactData: iCreateContacts, userId: string): Promise<iContact> => {
   const contactRepository: iContactsRepo = AppDataSource.getRepository(Contact);
@@ -16,7 +17,9 @@ const createContactService = async (contactData: iCreateContacts, userId: string
   const contacts: Contact = contactRepository.create({ ...contactData, user });
   await contactRepository.save(contacts);
 
-  return contacts;
+  const contact = contactReturnSchema.parse(contacts)
+
+  return contact;
 };
 
 export { createContactService };

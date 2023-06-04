@@ -1,7 +1,7 @@
 import { AppDataSource } from '../../data-source';
 import { User } from '../../entities';
 import { iUserMany, iUserRepo } from '../../interfaces';
-import { userReturnManySchema, userReturnWhitoutPassword } from '../../schemas';
+import { userReturnManySchema } from '../../schemas';
 
 const getUserServices = async (): Promise<iUserMany> => {
   const userRepository: iUserRepo = AppDataSource.getRepository(User);
@@ -11,9 +11,9 @@ const getUserServices = async (): Promise<iUserMany> => {
       contact: true
     }
   });
-  // const users = userReturnManySchema.parse(findUser);
+  const users = userReturnManySchema.parse(findUser);
 
-  return findUser;
+  return users;
 };
 
 export { getUserServices };

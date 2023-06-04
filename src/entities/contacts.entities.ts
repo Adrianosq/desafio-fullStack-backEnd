@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 import { User } from './user.entities';
 
@@ -25,6 +26,7 @@ class Contact {
   createdAt: string;
 
   @ManyToOne(() => User, (user) => user.contact)
+  @JoinColumn()
   user: User;
 }
 

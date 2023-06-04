@@ -1,7 +1,7 @@
 import { AppDataSource } from '../../data-source';
 import { User } from '../../entities';
 import { iCreateUser, iUserRepo, iUserWhitoutPassword } from '../../interfaces';
-import { userReturnWhitoutPassword } from '../../schemas';
+import { userReturnSchema } from '../../schemas';
 
 const createUserService = async (userData: iCreateUser): Promise<iUserWhitoutPassword> => {
   const userRepository: iUserRepo = AppDataSource.getRepository(User);
@@ -9,7 +9,7 @@ const createUserService = async (userData: iCreateUser): Promise<iUserWhitoutPas
   const user: User = userRepository.create(userData);
   await userRepository.save(user);
 
-  const newUser = userReturnWhitoutPassword.parse(user);
+  const newUser = userReturnSchema.parse(user);
 
   return newUser;
 };
